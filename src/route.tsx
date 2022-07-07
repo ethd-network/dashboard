@@ -1,21 +1,42 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter, Routes, Route,
+  IndexRouteProps,
+  PathRouteProps
+} from 'react-router-dom';
+import _ from 'lodash';
 import Home from './views/home';
 import Block from './views/block';
 import Error from './views/error';
+
+type RouterItem = PathRouteProps
+
+export const RouterList: RouterItem[] = [
+  {
+    path: '/',
+    element: <Home />
+  },
+  {
+    path: '/blocks',
+    element: <Block />
+  },
+  {
+    path: '/*',
+    element: <Error />
+  }
+];
 
 function App(): React.ReactElement {
   return (
     <BrowserRouter>
       <Routes>
         <Route index element={<Home />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/blocks" element={<Block />} />
-        {/* <Route path="/block/:h" element={<PageBlock />} /> */}
-        {/* <Route path="/txs" element={<PageTxs />} /> */}
-        {/* <Route path="/tx/:hash" element={<PageTxs />} /> */}
-        {/* <Route path="/dashboard" element={<PageDashboard />} /> */}
-        <Route path="/*" element={<Error />} />
+        {
+          /* eslint-disable react/jsx-props-no-spreading */
+          _.map(RouterList, (item: RouterItem) => (
+            <Route key={item?.path} {...item} />
+          ))
+        }
       </Routes>
     </BrowserRouter>
   );

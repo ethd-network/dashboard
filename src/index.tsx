@@ -1,28 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import { ThemeProvider } from '@primer/react';
 import reportWebVitals from './reportWebVitals';
-import Navigation from './components/navigation';
-import Footer from './components/footer';
-import Route from './route';
 
-declare type ColorMode = 'day' | 'night'
-let colorMode: ColorMode = 'day';
-
-export const GetColorMode = (): ColorMode => colorMode;
-
-export const SetColorMode = (value: ColorMode): void => {
-  colorMode = value;
-};
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider colorMode={GetColorMode()}>
-      <Navigation />
-      <Route />
-      <Footer />
-    </ThemeProvider>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
