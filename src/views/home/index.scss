@@ -1,21 +1,29 @@
 
 .home {
-  .lead {
-    text-align: center;
-  }
 
-  .name {
-    font-size: 64px;
-  }
+  .search-wrapper {
+    display: flex;
+    flex: 1;
 
-  .box-search {
-    .TextInput-wrapper {
-      padding-top: 3px;
-      padding-bottom: 3px;
+    .lead {
+      text-align: center;
     }
 
-    .btn-search {
-      margin-left: 4px;
+    .name {
+      font-size: 64px;
     }
+
+    .box-search {
+      .TextInput-wrapper {
+        padding-top: 3px;
+        padding-bottom: 3px;
+      }
+
+      .btn-search {
+        margin-left: 4px;
+      }
+    }
+
+
   }
 }

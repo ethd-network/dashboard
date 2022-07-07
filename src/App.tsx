@@ -28,8 +28,10 @@ export default function App(): React.ReactElement {
     <ThemeProvider colorMode="auto">
       <div className="app">
         <Navigation />
-        <Route />
-        <Footer />
+        <div className="content">
+          <Route />
+          <Footer />
+        </div>
       </div>
     </ThemeProvider>
   );

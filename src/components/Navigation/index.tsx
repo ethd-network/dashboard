@@ -4,6 +4,7 @@ import { DependabotIcon } from '@primer/octicons-react';
 import { BetterSystemStyleObject } from '@primer/react/lib/sx';
 import _ from 'lodash';
 import ConnectWallet from '../ConnectWallet';
+import './index.scss';
 
 type NavigationItem = {
   path: string;
@@ -40,7 +41,7 @@ export default function Navigation(): React.ReactElement {
   ];
 
   return (
-    <Header sx={style}>
+    <Header className="nav custom-nav" sx={style}>
       <Header.Item>
         <Header.Link href="/">
           <StyledOcticon icon={DependabotIcon} size={32} />

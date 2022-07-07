@@ -1,39 +1,75 @@
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 import { Box, Text } from '@primer/react';
+import _ from 'lodash';
+
+type BlockItemProps = {
+  title: string,
+  value: string | number
+}
 
 export function BlockItem(
-  { children }: PropsWithChildren<React.ReactNode>
+  {
+    title,
+    value
+  }: BlockItemProps
 ): React.ReactElement {
   return (
     <Box
-      p={6}
-      flex={1}
+      p={3}
       borderColor="border.default"
       borderWidth={1}
       borderStyle="dashed"
       borderRadius={6}
     >
-      <Text fontSize={14}>
-        {children}
+      <Text fontSize={12} fontWeight="bold">
+        {`${title}: `}
+      </Text>
+      <Text fontSize={12}>
+        {value}
       </Text>
     </Box>
   );
 }
 
 export default function BlockChainInfo(): React.ReactElement {
+  const Data = [
+    {
+      title: 'Chain ID',
+      value: 65535
+    },
+    {
+      title: 'Block Count',
+      value: 12323
+    },
+    {
+      title: 'Tx Count',
+      value: 23423423
+    },
+    {
+      title: 'Contract Count',
+      value: 235
+    },
+    {
+      title: 'Pending Count',
+      value: 91
+    },
+    {
+      title: 'TPS',
+      value: 123
+    }
+  ];
   return (
-
     <Box
-      display="flex"
-      gridGap={3}
+      display="grid"
+      flexDirection="row"
+      gridTemplateColumns="1fr 1fr 1fr"
+      gridGap={1}
     >
-
-      <BlockItem>Chain ID: 65535</BlockItem>
-      <BlockItem>Block Count: 12323</BlockItem>
-      <BlockItem>Tx Count: 23423423</BlockItem>
-      <BlockItem>Contract Count: 235</BlockItem>
-      <BlockItem>Pending Count: 91</BlockItem>
-      <BlockItem>TPS: 123</BlockItem>
+      {
+        _.map(Data, (item) => (
+          <BlockItem key={item.title} title={item.title} value={item.value} />
+        ))
+      }
     </Box>
   );
 }
