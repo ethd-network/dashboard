@@ -8,7 +8,9 @@
     "bootstrap-icons": "^1.9.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.4.0",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
+    "recharts": "^2.1.12",
     "sass": "^1.5.1"
   },
   "scripts": {
@@ -34,7 +36,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
   }
 }

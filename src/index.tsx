@@ -1,25 +1,35 @@
-import React from 'react'
+import React from 'react';
 import ReactDOM from 'react-dom/client'
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 
 import "./css/style.sass"
-import Header from "./header"
 
+import Header from "./header";
+import Blocks from "./blocks";
 
-function AA() {
+function Index() {
     return (
-        <div>asdf asdf<br/>asdf asdf<br/>asdf asdf<br/>asdf asdf<br/>asdf asdf<br/>asdf asdf<br/>asdf asdf<br/>asdf
-            asdf<br/>asdf asdf<br/>asdf asdf<br/>asdf asdf<br/>asdf asdf<br/>asdf asdf<br/>asdf asdf<br/>asdf
-            asdf<br/>asdf asdf<br/>asdf asdf<br/>asdf asdf<br/></div>
+        <>
+            <Header/>
+        </>
     )
 }
 
-const root = ReactDOM.createRoot(
-    document.getElementById('root') as HTMLElement
-)
-root.render(
-    <React.StrictMode>
-        <Header/>
-        <AA/>
-    </React.StrictMode>
-)
+export default function Start() {
+    const root = ReactDOM.createRoot(
+        document.getElementById('root') as HTMLElement
+    )
+    root.render(
+        <BrowserRouter>
+            <Routes>
+                <Route index element={<Index/>}/>
+                <Route path="/" element={<Index/>}/>
+                <Route path="/blocks" element={<Blocks/>}/>
+                <Route path="/block/:h" element={<Blocks/>}/>
+            </Routes>
+        </BrowserRouter>
+    )
+}
+
+Start()

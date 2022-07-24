@@ -9,24 +9,27 @@ export default function Header() {
         <Navbar bg="light">
             <Container fluid>
                 <Navbar.Brand href="/">
-                    <i className="bi bi-suit-diamond-fill"/>
+                    <i className="bi bi-suit-diamond-fill logo"/>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll"/>
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="me-auto my-2 my-lg-0" style={{maxHeight: '100px'}} navbarScroll>
                         <Nav.Link href="/blocks">Blocks</Nav.Link>
                         <Nav.Link href="/txs">Txs</Nav.Link>
-                        <Nav.Link href="/accounts">Accounts</Nav.Link>
-                        <Nav.Link href="/tokens">Tokens</Nav.Link>
-                        <Nav.Link href="/dex">DEX</Nav.Link>
-                        <Nav.Link href="/markets">Markets</Nav.Link>
+                        <Nav.Link href="/events">Events</Nav.Link>
+                        <Nav.Link href="/address">Address</Nav.Link>
+                        <Nav.Link href="/contract">Contract</Nav.Link>
+                        <Nav.Link href="/trace">Trace</Nav.Link>
                         <NavDropdown title="Tools" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="/tools#gas">Gas Tracker</NavDropdown.Item>
+                            <NavDropdown.Item href="/tools#calls">Contract ABI Calls</NavDropdown.Item>
                             <NavDropdown.Item href="/tools#convert">Convert Data</NavDropdown.Item>
                             <NavDropdown.Item href="/tools#signing">Signing Message</NavDropdown.Item>
                             <NavDropdown.Divider/>
+                            <NavDropdown.Item href="/subscribe">Subscribe Debug</NavDropdown.Item>
                             <NavDropdown.Item href="/tools#rpc-testing">JSON-RPC Testing</NavDropdown.Item>
                         </NavDropdown>
+                        <Nav.Link href="/api">API</Nav.Link>
                     </Nav>
                     <Form className="d-flex">
                         <input className="form-control border-0 search-input" type="search" width={1000}/>
